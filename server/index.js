@@ -5,6 +5,7 @@ import cors from 'cors';
 
 import postRoutes from './routes/posts.js';
 
+
 const app = express();
 
 
@@ -14,6 +15,11 @@ app.use(bodyParser.urlencoded({limit: "30mb", extended: true}));
 app.use(cors());
 
 app.use('/posts', postRoutes);
+
+app.get((req,res) => { 
+   res.send('SERVER IS RUNNING');
+
+})
 
 //connect with database: mongodb
 const CONNECTION_URL = 'mongodb+srv://nodeconnect:nodeconnect1234@cluster0.l32ar1t.mongodb.net/';
